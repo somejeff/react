@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>React 19 + Babel Offline</title>
+</head>
+<body>
+  <div id="root"></div>
+
+  <!-- React + ReactDOM UMD builds -->
+  <script src="./cdn_modules/react.development.js"></script>
+  <script src="./cdn_modules/react-dom.development.js"></script>
+
+  <!-- Babel standalone to transpile JSX in the browser -->
+  <script src="./cdn_modules/babel.min.js"></script>
+
+  <!-- Your JSX code -->
+  <script type="text/babel">
+    const { createRoot } = ReactDOM;
+
+    function Widget() {
+        return (<><div>Widget</div><div>div2</div></>);
+    }
+
+    function App() {
+      return (
+        <div>
+          <Widget/>
+        </div>
+      );
+    }
+
+    const rootElement = document.getElementById('root');
+    const root = createRoot(rootElement);
+    root.render(<App />);
+  </script>
+</body>
+</html>
